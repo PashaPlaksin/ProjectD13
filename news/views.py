@@ -63,9 +63,7 @@ class PostSearch(ListView):
     context_object_name = 'posts'
     queryset = Post.objects.all()
 
-    # забираем отфильтрованные объекты переопределяя метод get_context_data у наследуемого класса 
-    # (привет, полиморфизм, мы скучали!!!)
-    def get_context_data(self, **kwargs):
+   def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         # вписываем наш фильтр в контекст
         context['filter'] = PostFilter(
